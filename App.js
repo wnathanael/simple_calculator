@@ -1,20 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import {StatusBar} from 'expo-status-bar';
+import {
+    StyleSheet,
+    Text,
+    View,
+    SafeAreaView,
+    TouchableOpacity
+} from 'react-native';
+
+import CalculatorButtons from './components/CalculatorButtons';
+import Results from './components/Results';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    return (
+        <SafeAreaView style={
+            styles.container
+        }>
+            <Results/>
+            <CalculatorButtons/>
+        </SafeAreaView>
+    );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    container: {
+        flex: 1,
+        backgroundColor: '#454545',
+        alignItems: 'center',
+        justifyContent: 'center'
+    }
+
 });
