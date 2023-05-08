@@ -7,11 +7,28 @@ const CalculatorButton = ({ text, result, setResult, isOp }) => {
       style={text !== "0" ? styles.btn : styles.btn0}
       onPress={() => {
         console.log(text);
-        if (result === "0") {
+        if (result === "0" && !isOp) {
           setResult(text);
           return;
         }
-        setResult(result + text);
+        switch (text) {
+          case "AC":
+            setResult("0");
+            break;
+          case "+ / -":
+            if (result.chatAt(0) === "-") setResult(result.replaceAt(0, ""));
+            else setResult("-" + result);
+            break;
+          case "%":
+            setResult(eval(result) / 100);
+            break;
+          case "=":
+            setResult(eval(result.replaceAll("x", "*")));
+            break;
+          default:
+            setResult(result + text);
+            break;
+        }
       }}
     >
       <Text style={styles.btnText}>{text}</Text>
