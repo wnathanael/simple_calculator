@@ -6,17 +6,23 @@ import {
     SafeAreaView,
     TouchableOpacity
 } from 'react-native';
+import {useState} from 'react';
 
 import CalculatorButtons from './components/CalculatorButtons';
 import Results from './components/Results';
 
+
 export default function App() {
+    const [result, setResult] = useState("0");
+
+
     return (
         <SafeAreaView style={
             styles.container
         }>
-            <Results/>
-            <CalculatorButtons/>
+            <Results result={result}/>
+            <CalculatorButtons result={result}
+                setResult={setResult}/>
         </SafeAreaView>
     );
 }

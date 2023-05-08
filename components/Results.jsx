@@ -1,10 +1,10 @@
 import React from "react";
 import { Text, StyleSheet, View } from "react-native";
 
-const Results = () => {
+const Results = ({ result }) => {
   return (
     <View style={styles.resultContainer}>
-      <Text style={styles.text}>Results</Text>
+      <Text style={styles.text}>{result}</Text>
     </View>
   );
 };
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
   text: {
     //backgroundColor: "yellow",
     color: "white",
-    fontSize: 20,
+    fontSize: 70,
     margin: 10,
   },
 });

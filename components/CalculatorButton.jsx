@@ -1,9 +1,19 @@
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
-const CalculatorButton = ({ text }) => {
+const CalculatorButton = ({ text, result, setResult, isOp }) => {
   return (
-    <TouchableOpacity style={text !== 0 ? styles.btn : styles.btn0}>
+    <TouchableOpacity
+      style={text !== "0" ? styles.btn : styles.btn0}
+      onPress={() => {
+        console.log(text);
+        if (result === "0") {
+          setResult(text);
+          return;
+        }
+        setResult(result + text);
+      }}
+    >
       <Text style={styles.btnText}>{text}</Text>
     </TouchableOpacity>
   );
